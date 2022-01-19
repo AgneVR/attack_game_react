@@ -1,0 +1,44 @@
+@import 'fonts';
+
+@mixin buttonStyleBlue {
+  border: none;
+  border-radius: 12px 12px 0 0;
+  color: white;
+  padding: 10px 20px;
+  background: #024b68;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: $fontFamily;
+  font-size: 17px;
+  border-bottom: none;
+  border: 1px solid #024b68;
+
+  &:hover {
+    border: 1px solid #024b68;
+    color: #024b68;
+    background: white;
+    border-bottom: none;
+  }
+}
+@mixin buttonStyleLightBlue {
+  border: none;
+  border-radius: 12px 12px 0 0;
+  color: white;
+  padding: 10px 20px;
+  background: #0375a3;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: $fontFamily;
+  font-size: 17px;
+  border-bottom: none;
+  border: 1px solid #0375a3;
+
+  &:hover {
+    border: 1px solid #0375a3;
+    border-bottom: none;
+    color: #0375a3;
+    background: white;
+  }
+}

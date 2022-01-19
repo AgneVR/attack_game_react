@@ -1,0 +1,36 @@
+@import '../../styles//mixins';
+
+.container-shop {
+  margin: 50px 100px;
+  display: flex;
+  flex-direction: column;
+  .info-block {
+    display: flex;
+  }
+  .left-side-weapons {
+    margin-right: 50px;
+    width: 60%;
+    border-radius: 0 0 12px 12px;
+    .btn-container {
+      width: 100%;
+      .btn1 {
+        @include buttonStyleBlue();
+        width: 50%;
+      }
+      .btn2 {
+        @include buttonStyleLightBlue();
+        width: 50%;
+      }
+    }
+  }
+  .left-side-inventory {
+    width: 40%;
+    border-radius: 12px;
+  }
+
+  .left-side-inventory,
+  .weap {
+    background-color: rgb(238, 238, 238);
+    padding: 20px;
+  }
+}

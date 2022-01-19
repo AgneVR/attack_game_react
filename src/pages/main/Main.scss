@@ -1,0 +1,18 @@
+@import '../../styles/colors';
+
+.container-main {
+  margin: 50px 100px;
+  display: flex;
+
+  .character-side,
+  .inventory-side {
+    flex: 1;
+    margin-right: 50px;
+    box-shadow: $boxShadow;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .inventory-side {
+    flex: 2;
+  }
+}

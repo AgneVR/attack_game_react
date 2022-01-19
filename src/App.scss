@@ -1,0 +1,32 @@
+@import './styles/colors';
+@import './styles/mixins';
+
+// button {
+//   @include buttonStyle();
+// }
+
+.container {
+  margin: 0 100px;
+}
+.d-flex {
+  display: flex;
+}
+.center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.around {
+  justify-content: space-around;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+
+.column {
+  flex-direction: column;
+}
+.text-center {
+  text-align: center;
+}

@@ -1,0 +1,40 @@
+@import '../../styles/colors';
+@import '../../styles/mixins';
+.inventory-block {
+  display: flex;
+  flex-direction: column;
+  .inventory-weapons {
+    display: flex;
+    flex-wrap: wrap;
+    .inventory-weapon {
+      margin: 8px;
+      background-color: white;
+      box-shadow: $boxShadow;
+      text-align: center;
+
+      img,
+      p {
+        padding: 10px 10px 0;
+      }
+
+      border-radius: 12px;
+      button {
+        @include buttonStyleBlue();
+        width: 100%;
+        font-size: 14px;
+        padding: 4px;
+        border-radius: 0 0 12px 12px;
+        border: 1px solid #024b68;
+        &:hover {
+          border: 1px solid #024b68;
+        }
+      }
+      .equip {
+        @include buttonStyleLightBlue();
+        border-radius: 0;
+        font-size: 14px;
+        padding: 3px;
+      }
+    }
+  }
+}

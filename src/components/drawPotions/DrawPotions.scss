@@ -1,0 +1,32 @@
+@import '../../styles/colors';
+
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .single-item {
+    margin: 8px;
+    box-shadow: $boxShadow;
+    padding: 10px 10px 0;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 12px;
+    background-color: white;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.03);
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 6px;
+    }
+    ul {
+      text-align: left;
+    }
+    &.weapon {
+      height: 200px;
+      width: 200px;
+      overflow-y: scroll;
+    }
+  }
+}
