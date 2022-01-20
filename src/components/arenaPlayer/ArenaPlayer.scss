@@ -1,0 +1,39 @@
+.arena-player {
+  h3 {
+    margin-top: 10px;
+  }
+  h4 {
+    margin-bottom: 10px;
+  }
+  .img-container {
+    width: 60%;
+    margin: 0 auto;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .health-progress,
+  .energy-progress {
+    display: flex;
+    width: 90%;
+    border-radius: 10px;
+    background: #dce1e4;
+    height: 12px;
+    overflow: visible;
+    padding: 3px;
+
+    .progress-bar {
+      display: flex;
+      height: 100%;
+      background: linear-gradient(145deg, #fff 0, #0086f9 100%);
+      border-radius: 14px;
+    }
+    .energy {
+      display: flex;
+      height: 100%;
+      background: linear-gradient(145deg, #fff 0, #00387e 100%);
+      border-radius: 14px;
+    }
+  }
+}

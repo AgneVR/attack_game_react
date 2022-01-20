@@ -276,13 +276,14 @@ export const monstersReducer = createSlice({
         maxItemsDrop: 10,
       },
     ],
+    randomMonster: null,
   },
   reducers: {
-    setMonsters: (state, { payload }) => {
-      state.value = payload;
+    setRandomEnemy: (state, action) => {
+      state.randomMonster = state.value[Math.floor(Math.random() * state.value.length)];
     },
   },
 });
 
-export const { setMonsters } = monstersReducer.actions;
+export const { setRandomEnemy } = monstersReducer.actions;
 export default monstersReducer.reducer;

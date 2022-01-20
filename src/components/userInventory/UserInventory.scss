@@ -3,6 +3,9 @@
 .inventory-block {
   display: flex;
   flex-direction: column;
+  &.only-potions {
+    margin-top: 30px;
+  }
   .inventory-weapons {
     display: flex;
     flex-wrap: wrap;

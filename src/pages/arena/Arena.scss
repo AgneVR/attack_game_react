@@ -1,0 +1,88 @@
+@import '../../styles/colors';
+@import '../../styles/mixins';
+
+.arena-container {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+  .characters-side {
+    box-shadow: $boxShadow;
+    border-radius: 12px;
+    padding: 20px;
+    flex: 2;
+    margin: 0 10px;
+  }
+  .buttons-side {
+    flex: 1;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    .enemy-btn {
+      @include buttonStyleShopDraker();
+      border-radius: 26px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      font-size: 15px;
+      &:hover {
+        border: 1px solid #58023c;
+      }
+    }
+    .attack-btn {
+      @include buttonStyleRed();
+      border-radius: 26px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      &:hover {
+        border: 1px solid #780505;
+      }
+    }
+  }
+  .enemy-side {
+    flex: 2;
+    margin: 0 10px;
+  }
+  .end-game {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
+    .enemy-btn {
+      @include buttonStyleShopDraker();
+      border-radius: 26px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      font-size: 15px;
+      margin: 0 8px;
+      text-decoration: none;
+      &:hover {
+        border: 1px solid #58023c;
+      }
+    }
+    .main-btn {
+      @include buttonStyleBlue();
+      border-radius: 26px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      font-size: 15px;
+      margin: 0 8px;
+      text-decoration: none;
+      &:hover {
+        border: 1px solid #02575e;
+      }
+    }
+    .character-btn {
+      @include buttonStyleLightBlue();
+      border-radius: 26px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      font-size: 15px;
+      margin: 0 8px;
+      &:hover {
+        border: 1px solid #0375a3;
+      }
+    }
+  }
+}
+a {
+  text-decoration: none;
+}

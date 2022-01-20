@@ -1,0 +1,35 @@
+@import '../../styles/colors';
+.monster-box {
+  box-shadow: $boxShadow;
+  border-radius: 12px;
+  padding: 20px;
+  h3 {
+    margin-top: 10px;
+  }
+  h4 {
+    margin-bottom: 10px;
+  }
+  .img-container {
+    width: 60%;
+    margin: 0 auto;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .monsters-progress {
+    display: flex;
+    width: 90%;
+    border-radius: 10px;
+    background: #dce1e4;
+    height: 12px;
+    overflow: visible;
+    padding: 3px;
+    .health {
+      display: flex;
+      height: 100%;
+      background: linear-gradient(145deg, #fff 0, #930000 100%);
+      border-radius: 14px;
+    }
+  }
+}

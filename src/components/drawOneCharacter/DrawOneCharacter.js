@@ -30,7 +30,11 @@ const DrawOneCharacter = () => {
           <div className='d-flex center justify-center column'>
             <h3>Chosen weapon:</h3>
             <div className='chosen-weapon'>
-              {myWeapon !== null && <img src={myWeapon.image} alt='' />}
+              {myWeapon !== null && (
+                <div className='my-weapon'>
+                  <img src={myWeapon.image} alt='' />
+                </div>
+              )}
             </div>
           </div>
         </div>
