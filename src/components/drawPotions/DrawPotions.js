@@ -14,7 +14,8 @@ const DrawPotions = () => {
   const onClickHandler = (item) => {
     console.log(myCharacter);
     if (
-      myInventor.potions.length + myInventor.weapons.length < myCharacter.inventorySlots &&
+      myInventor.potions.length + myInventor.weapons.length + myInventor.dropItems.length <
+        myCharacter.inventorySlots &&
       myCharacter.gold >= item.price
     ) {
       dispatch(setMyInventoryPotions(item));

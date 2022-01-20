@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import './ArenaPlayer.scss';
 
-const ArenaPlayer = () => {
+const ArenaPlayer = ({ onClickInventoryShowHandler }) => {
   const oneCharacter = useSelector((state) => state.characters.myCharacter);
   let charactersHealh = oneCharacter.health;
   let charactersEnergy = oneCharacter.energy;
@@ -15,7 +15,9 @@ const ArenaPlayer = () => {
             <img src={oneCharacter.image} alt='' />
           </div>
           <h3 className='text-center'>Race: {oneCharacter.race}</h3>
-
+          <button className='invent-btn' onClick={onClickInventoryShowHandler}>
+            Inventory
+          </button>
           <h4>Health</h4>
           <div className='health-progress'>
             <div className='progress-bar one' style={{ width: `${charactersHealh}%` }}></div>

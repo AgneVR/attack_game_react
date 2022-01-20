@@ -1,3 +1,5 @@
+@import '../../styles/mixins';
+
 .arena-player {
   h3 {
     margin-top: 10px;
@@ -34,6 +36,17 @@
       height: 100%;
       background: linear-gradient(145deg, #fff 0, #00387e 100%);
       border-radius: 14px;
+    }
+  }
+  .invent-btn {
+    @include buttonStyleBlueDark();
+    border-radius: 26px;
+    padding: 6px 20px;
+    display: flex;
+    margin: 0 auto;
+    font-size: 14px;
+    &:hover {
+      border: 1px solid #022550;
     }
   }
 }

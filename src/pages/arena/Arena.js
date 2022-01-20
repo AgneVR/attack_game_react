@@ -6,11 +6,13 @@ import ArenaMonster from '../../components/arenaMonster/ArenaMonster';
 import RandomItems from '../../components/randomItems/RandomItems';
 import OnlyPotions from '../../components/onlyPotions/OnlyPotions';
 import DrawPotions from '../../components/drawPotions/DrawPotions';
-import monsters, { setRandomEnemy } from '../../features/monsters';
+import UserInventory from '../../components/userInventory/UserInventory';
+import { setRandomEnemy } from '../../features/monsters';
 import './Arena.scss';
 
 const Arena = () => {
-  const [showBtn, setShowBtn] = useState(false);
+  const [showInventory, setShowInventory] = useState(false);
+
   const monster = useSelector((state) => state.monsters.randomMonster);
 
   const dispatch = useDispatch();
@@ -19,6 +21,9 @@ const Arena = () => {
     dispatch(setRandomEnemy());
   };
 
+  const onClickInventoryShowHandler = () => {
+    setShowInventory(!showInventory);
+  };
   function enemySide() {
     if (monster !== null && monster.health > 0) {
       return <ArenaMonster />;
@@ -32,9 +37,10 @@ const Arena = () => {
       <div className='arena-container'>
         <div className='d-flex center'>
           <div className='characters-side'>
-            <ArenaPlayer />
+            <ArenaPlayer onClickInventoryShowHandler={onClickInventoryShowHandler} />
+            {showInventory && <UserInventory />}
+
             <OnlyPotions />
-            {/* <UserInventory /> */}
           </div>
           <div className='buttons-side  justify-center d-flex'>
             {!monster ? (

@@ -85,27 +85,7 @@
     background: white;
   }
 }
-@mixin buttonStyleShopDraker {
-  border: none;
-  border-radius: 12px 12px 0 0;
-  color: white;
-  padding: 10px 20px;
-  background: #58023c;
-  cursor: pointer;
-  font-weight: 600;
-  letter-spacing: 1px;
-  font-family: $fontFamily;
-  font-size: 17px;
-  border-bottom: none;
-  border: 1px solid #58023c;
 
-  &:hover {
-    border: 1px solid #58023c;
-    border-bottom: none;
-    color: #58023c;
-    background: white;
-  }
-}
 @mixin buttonStyleGreenDraker {
   border: none;
   border-radius: 12px 12px 0 0;
@@ -125,5 +105,27 @@
     border-bottom: none;
     color: #02575e;
     background: white;
+  }
+}
+
+@mixin buttonStyleBlueDark {
+  border: none;
+  border-radius: 12px 12px 0 0;
+  color: white;
+  padding: 10px 20px;
+  background: #022550;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: $fontFamily;
+  font-size: 17px;
+  border-bottom: none;
+  border: 1px solid #022550;
+
+  &:hover {
+    border: 1px solid #024b68;
+    color: #022550;
+    background: white;
+    border-bottom: none;
   }
 }

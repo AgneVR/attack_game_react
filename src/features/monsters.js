@@ -602,18 +602,30 @@ export const monstersReducer = createSlice({
   },
   reducers: {
     setRandomEnemy: (state, action) => {
-      let randomMonster = state.value[Math.floor(Math.random() * state.value.length)];
-      let randomItemsCount = Math.floor(Math.random() * (randomMonster.maxItemsDrop - 1)) + 1;
+      let randomEnemy = state.value[Math.floor(Math.random() * state.value.length)];
+      let randomItemsCount = Math.floor(Math.random() * (randomEnemy.maxItemsDrop - 1)) + 1;
       let generatedItems = [];
       for (let i = 1; i <= randomItemsCount; i++) {
         let randomItem = state.dropItems[Math.floor(Math.random() * state.dropItems.length)];
         generatedItems = [...generatedItems, randomItem];
       }
-      randomMonster = { ...randomMonster, drops: generatedItems };
-      state.randomMonster = randomMonster;
+      randomEnemy = { ...randomEnemy, drops: generatedItems };
+
+      state.randomMonster = randomEnemy;
+    },
+
+    removeDropItemFromMonster: (state, { payload }) => {
+      const deleteIndex = payload;
+      const drops = state.randomMonster.drops;
+      const result = drops.filter((el, i) => i !== deleteIndex);
+
+      state.randomMonster = {
+        ...state.randomMonster,
+        drops: result,
+      };
     },
   },
 });
 
-export const { setRandomEnemy } = monstersReducer.actions;
+export const { setRandomEnemy, removeDropItemFromMonster } = monstersReducer.actions;
 export default monstersReducer.reducer;

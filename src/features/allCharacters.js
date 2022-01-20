@@ -14,7 +14,7 @@ export const allCharactersReducer = createSlice({
         stamina: 3,
         strength: 1,
         inventorySlots: 3,
-        gold: 100,
+        gold: 10000000,
       },
       {
         image:
@@ -106,6 +106,7 @@ export const allCharactersReducer = createSlice({
     myCharacterInventory: {
       weapons: [],
       potions: [],
+      dropItems: [],
     },
     myWeapom: null,
   },
@@ -128,6 +129,12 @@ export const allCharactersReducer = createSlice({
         potions: [...state.myCharacterInventory.potions, payload],
       };
     },
+    setMyDropItems: (state, { payload }) => {
+      state.myCharacterInventory = {
+        ...state.myCharacterInventory,
+        dropItems: [...state.myCharacterInventory.dropItems, payload],
+      };
+    },
     substractGold: (state, { payload }) => {
       state.myCharacter.gold -= payload;
     },
@@ -144,6 +151,11 @@ export const allCharactersReducer = createSlice({
       const result = state.myCharacterInventory.potions.filter((el, i) => i !== deleteIndex);
       state.myCharacterInventory.potions = result;
     },
+    removeDropItem: (state, { payload }) => {
+      const deleteIndex = payload;
+      const result = state.myCharacterInventory.dropItems.filter((el, i) => i !== deleteIndex);
+      state.myCharacterInventory.dropItems = result;
+    },
     addMyWeapon: (state, { payload }) => {
       const deleteIndex = payload.index;
       const result = state.myCharacterInventory.weapons.filter((el, i) => i !== deleteIndex);
@@ -156,6 +168,7 @@ export const allCharactersReducer = createSlice({
         };
       }
       state.myWeapom = payload.weapon;
+      console.log(payload.weapon);
     },
   },
 });
@@ -170,5 +183,7 @@ export const {
   removeItemFromWeapon,
   removeItemFromPoision,
   addMyWeapon,
+  removeDropItem,
+  setMyDropItems,
 } = allCharactersReducer.actions;
 export default allCharactersReducer.reducer;
