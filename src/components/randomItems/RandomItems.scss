@@ -1,0 +1,19 @@
+@import '../../styles/colors';
+
+.random-items-container {
+  box-shadow: $boxShadow;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  .one-drop {
+    background: rgb(223, 223, 223);
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    p {
+      margin-bottom: 0;
+      margin-top: 6px;
+    }
+  }
+}
