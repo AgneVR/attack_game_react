@@ -1,0 +1,30 @@
+@import '../../styles/mixins';
+
+.end-game {
+  height: 100vh;
+  width: 100%;
+  z-index: 999;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #000000c9;
+  color: white;
+  position: fixed;
+  display: block;
+  overflow-y: hidden !important;
+  scrollbar-width: none;
+  top: 0;
+  left: 0;
+  .text-container {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    position: inherit;
+    text-align: center;
+    a {
+      @include buttonStyleLightBlue();
+      border-radius: 26px;
+    }
+  }
+}

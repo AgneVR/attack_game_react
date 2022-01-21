@@ -609,7 +609,7 @@ export const monstersReducer = createSlice({
         let randomItem = state.dropItems[Math.floor(Math.random() * state.dropItems.length)];
         generatedItems = [...generatedItems, randomItem];
       }
-      randomEnemy = { ...randomEnemy, drops: generatedItems };
+      randomEnemy = { ...randomEnemy, drops: generatedItems, fullHealth: randomEnemy.health };
 
       state.randomMonster = randomEnemy;
     },
@@ -624,8 +624,16 @@ export const monstersReducer = createSlice({
         drops: result,
       };
     },
+
+    looseHealthInArena: (state, { payload }) => {
+      state.randomMonster.health -= payload;
+    },
+    resetMonster: (state, action) => {
+      state.randomMonster = null;
+    },
   },
 });
 
-export const { setRandomEnemy, removeDropItemFromMonster } = monstersReducer.actions;
+export const { setRandomEnemy, removeDropItemFromMonster, looseHealthInArena, resetMonster } =
+  monstersReducer.actions;
 export default monstersReducer.reducer;

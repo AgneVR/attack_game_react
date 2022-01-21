@@ -5,6 +5,10 @@ import './ArenaMonster.scss';
 const ArenaMonster = () => {
   const oneMonster = useSelector((state) => state.monsters.randomMonster);
 
+  const monsterHealthCalc = () => {
+    return (oneMonster.health * 100) / oneMonster.fullHealth;
+  };
+
   return (
     <>
       {oneMonster && (
@@ -13,9 +17,9 @@ const ArenaMonster = () => {
             <img src={oneMonster.image} alt='' />
           </div>
           <h3 className='text-center'>Name: {oneMonster.name}</h3>
-          <h4>Health</h4>
+          <h4>Health: {oneMonster.health}</h4>
           <div className='monsters-progress'>
-            <div className='health' style={{ width: `${oneMonster.health}%` }}></div>
+            <div className='health' style={{ width: `${monsterHealthCalc()}%` }}></div>
           </div>
 
           <div className='d-flex around'>

@@ -8,9 +8,9 @@ export const allCharactersReducer = createSlice({
         image:
           'https://images.blz-contentstack.com/v3/assets/blt3452e3b114fab0cd/blte097d3ac18c5b8ed/6165ec51ff59d903990f26e3/EE3E9KVL9ROW1613677289232.png',
         race: 'Human',
-        damage: 3,
-        health: 50,
-        energy: 50,
+        damage: 15,
+        health: 150,
+        energy: 160,
         stamina: 3,
         strength: 1,
         inventorySlots: 8,
@@ -109,13 +109,19 @@ export const allCharactersReducer = createSlice({
       dropItems: [],
     },
     myWeapom: null,
+    gameStatus: true,
   },
   reducers: {
     setAllCharacters: (state, action) => {
       state.value = action.payload;
     },
     setMyCharacter: (state, { payload }) => {
-      state.myCharacter = payload;
+      let character = payload;
+      state.myCharacter = {
+        ...character,
+        fullHealth: character.health,
+        fullEnergy: character.energy,
+      };
     },
     setMyInventoryWeapons: (state, { payload }) => {
       state.myCharacterInventory = {
@@ -166,9 +172,43 @@ export const allCharactersReducer = createSlice({
           ...state.myCharacterInventory,
           weapons: [...state.myCharacterInventory.weapons, state.myWeapom],
         };
+
+        if (state.myWeapom.effects && state.myWeapom.effects.length > 0) {
+          state.myWeapom.effects.forEach((el) => {
+            let currentEffect = payload.effects[el].effect;
+            if (currentEffect.health) {
+              state.myCharacter.health -= currentEffect.health;
+            } else if (currentEffect.energy) {
+              state.myCharacter.energy -= currentEffect.energy;
+            } else if (currentEffect.stamina) {
+              state.myCharacter.stamina -= currentEffect.stamina;
+            } else if (currentEffect.strength) {
+              state.myCharacter.strength -= currentEffect.strength;
+            } else if (currentEffect.inventorySlots) {
+              state.myCharacter.inventorySlots -= currentEffect.inventorySlots;
+            }
+          });
+        }
       }
+
       state.myWeapom = payload.weapon;
-      console.log(payload.weapon);
+
+      if (payload.weapon.effects && payload.weapon.effects.length > 0) {
+        payload.weapon.effects.forEach((el) => {
+          let currentEffect = payload.effects[el].effect;
+          if (currentEffect.health) {
+            state.myCharacter.health += currentEffect.health;
+          } else if (currentEffect.energy) {
+            state.myCharacter.energy += currentEffect.energy;
+          } else if (currentEffect.stamina) {
+            state.myCharacter.stamina += currentEffect.stamina;
+          } else if (currentEffect.strength) {
+            state.myCharacter.strength += currentEffect.strength;
+          } else if (currentEffect.inventorySlots) {
+            state.myCharacter.inventorySlots += currentEffect.inventorySlots;
+          }
+        });
+      }
     },
     removePotionInArena: (state, { payload }) => {
       const deleteIndex = payload;
@@ -180,6 +220,30 @@ export const allCharactersReducer = createSlice({
     },
     getPotionEnergyInArena: (state, { payload }) => {
       state.myCharacter.energy += payload;
+    },
+    looseCharacterEnergyInArena: (state, { payload }) => {
+      state.myCharacter.energy -= payload;
+    },
+    looseCharacterHealthInArena: (state, { payload }) => {
+      let newHealth = state.myCharacter.health - payload;
+      if (newHealth <= 0) {
+        state.gameStatus = false;
+      } else {
+        state.myCharacter.health = newHealth;
+      }
+    },
+    addEnergyAfterMonsterAttack: (state, { payload }) => {
+      state.myCharacter.energy += payload;
+    },
+    resetGame: (state, action) => {
+      state.myCharacter = null;
+      state.myCharacterInventory = {
+        weapons: [],
+        potions: [],
+        dropItems: [],
+      };
+      state.myWeapom = null;
+      state.gameStatus = true;
     },
   },
 });
@@ -199,5 +263,9 @@ export const {
   getPotionHealtInArena,
   getPotionEnergyInArena,
   removePotionInArena,
+  looseCharacterEnergyInArena,
+  looseCharacterHealthInArena,
+  addEnergyAfterMonsterAttack,
+  resetGame,
 } = allCharactersReducer.actions;
 export default allCharactersReducer.reducer;

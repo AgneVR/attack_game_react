@@ -7,8 +7,13 @@ const ArenaPlayer = () => {
   const [changeBtnText, setChangeBtnText] = useState('Show Inventory');
   const [showInventory, setShowInventory] = useState(false);
   const oneCharacter = useSelector((state) => state.characters.myCharacter);
-  let charactersHealh = oneCharacter.health;
-  let charactersEnergy = oneCharacter.energy;
+
+  const characterHealthCalc = () => {
+    return (oneCharacter.health * 100) / oneCharacter.fullHealth;
+  };
+  const characterEnergyCalc = () => {
+    return (oneCharacter.energy * 100) / oneCharacter.fullEnergy;
+  };
 
   const onClickInventoryShowHandler = (text) => {
     setShowInventory(!showInventory);
@@ -37,13 +42,13 @@ const ArenaPlayer = () => {
             </button>
             {showInventory && <ArenaInventory />}
           </div>
-          <h4>Health</h4>
+          <h4>Health: {oneCharacter.health}</h4>
           <div className='health-progress'>
-            <div className='progress-bar one' style={{ width: `${charactersHealh}%` }}></div>
+            <div className='progress-bar one' style={{ width: `${characterHealthCalc()}%` }}></div>
           </div>
-          <h4>Energy</h4>
+          <h4>Energy: {oneCharacter.energy}</h4>
           <div className='energy-progress'>
-            <div className='energy two' style={{ width: `${charactersEnergy}%` }}></div>
+            <div className='energy two' style={{ width: `${characterEnergyCalc()}%` }}></div>
           </div>
         </div>
       )}
