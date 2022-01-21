@@ -14,7 +14,13 @@
       background-color: white;
       box-shadow: $boxShadow;
       text-align: center;
-
+      &.potion {
+        p {
+          margin-top: 0;
+          margin-bottom: 6px;
+          padding-top: 0;
+        }
+      }
       img,
       p {
         padding: 10px 10px 0;

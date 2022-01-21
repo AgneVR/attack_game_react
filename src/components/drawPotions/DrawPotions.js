@@ -12,7 +12,6 @@ const DrawPotions = () => {
   const dispatch = useDispatch();
 
   const onClickHandler = (item) => {
-    console.log(myCharacter);
     if (
       myInventor.potions.length + myInventor.weapons.length + myInventor.dropItems.length <
         myCharacter.inventorySlots &&

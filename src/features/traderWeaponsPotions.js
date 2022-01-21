@@ -415,15 +415,6 @@ export const traderReducer = createSlice({
       ],
     },
   },
-  reducers: {
-    setTraderWeapons: (state, { payload }) => {
-      state.value.weapons = payload;
-    },
-    setTraderPotions: (state, { payload }) => {
-      state.value.potions = payload;
-    },
-  },
 });
 
-export const { setTraderWeapons, setTraderPotions } = traderReducer.actions;
 export default traderReducer.reducer;

@@ -9,11 +9,11 @@ export const allCharactersReducer = createSlice({
           'https://images.blz-contentstack.com/v3/assets/blt3452e3b114fab0cd/blte097d3ac18c5b8ed/6165ec51ff59d903990f26e3/EE3E9KVL9ROW1613677289232.png',
         race: 'Human',
         damage: 3,
-        health: 150,
+        health: 50,
         energy: 50,
         stamina: 3,
         strength: 1,
-        inventorySlots: 3,
+        inventorySlots: 8,
         gold: 10000000,
       },
       {
@@ -170,6 +170,17 @@ export const allCharactersReducer = createSlice({
       state.myWeapom = payload.weapon;
       console.log(payload.weapon);
     },
+    removePotionInArena: (state, { payload }) => {
+      const deleteIndex = payload;
+      const result = state.myCharacterInventory.potions.filter((el, i) => i !== deleteIndex);
+      state.myCharacterInventory.potions = result;
+    },
+    getPotionHealtInArena: (state, { payload }) => {
+      state.myCharacter.health += payload;
+    },
+    getPotionEnergyInArena: (state, { payload }) => {
+      state.myCharacter.energy += payload;
+    },
   },
 });
 
@@ -185,5 +196,8 @@ export const {
   addMyWeapon,
   removeDropItem,
   setMyDropItems,
+  getPotionHealtInArena,
+  getPotionEnergyInArena,
+  removePotionInArena,
 } = allCharactersReducer.actions;
 export default allCharactersReducer.reducer;
