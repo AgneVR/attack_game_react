@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/attack_game_react/static/css/main.8073cd07.css",
+    "main.js": "/attack_game_react/static/js/main.13c76c92.js",
+    "static/js/787.c2e8ffc0.chunk.js": "/attack_game_react/static/js/787.c2e8ffc0.chunk.js",
+    "index.html": "/attack_game_react/index.html",
+    "main.8073cd07.css.map": "/attack_game_react/static/css/main.8073cd07.css.map",
+    "main.13c76c92.js.map": "/attack_game_react/static/js/main.13c76c92.js.map",
+    "787.c2e8ffc0.chunk.js.map": "/attack_game_react/static/js/787.c2e8ffc0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8073cd07.css",
+    "static/js/main.13c76c92.js"
+  ]
+}
