@@ -1,3 +1,4 @@
+@import '../../styles/colors';
 .characters-container {
   display: flex;
   flex-wrap: wrap;
@@ -11,7 +12,7 @@
     border-radius: 12px;
     padding: 20px;
     cursor: pointer;
-    box-shadow: 0px 0px 19px 1px rgb(153 153 153 / 41%);
+    box-shadow: $boxShadow;
     .img-container {
       img {
         width: 100%;

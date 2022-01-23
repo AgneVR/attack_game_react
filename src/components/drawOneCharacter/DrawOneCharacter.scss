@@ -1,8 +1,9 @@
+@import '../../styles/colors';
 .chosen-weapon {
   display: flex;
   width: 100px;
   height: 100px;
-  background-color: rgb(240, 240, 240);
+  background-color: $lightGreyThree;
   border-radius: 12px;
   .my-weapon {
     display: flex;

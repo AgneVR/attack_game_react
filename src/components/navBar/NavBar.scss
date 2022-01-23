@@ -1,5 +1,6 @@
+@import '../../styles/colors';
 nav {
-  background-color: #e6e6e6;
+  background-color: $darkerLightGrey;
   padding: 20px 100px;
   display: flex;
   align-items: center;
@@ -11,8 +12,8 @@ nav {
     color: black;
     margin-right: 24px;
     &:hover {
-      color: rgb(0, 140, 255);
-      border-bottom: 2px solid rgb(0, 140, 255);
+      color: $linkHoverLightBlue;
+      border-bottom: 2px solid $linkHoverLightBlue;
     }
   }
   h3 {

@@ -1,5 +1,6 @@
 @import '../../styles/colors';
 @import '../../styles/mixins';
+
 .inventory-block {
   display: flex;
   flex-direction: column;
@@ -11,7 +12,7 @@
     flex-wrap: wrap;
     .inventory-weapon {
       margin: 8px;
-      background-color: white;
+      background-color: $white;
       box-shadow: $boxShadow;
       text-align: center;
       &.potion {
@@ -33,9 +34,9 @@
         font-size: 14px;
         padding: 4px;
         border-radius: 0 0 12px 12px;
-        border: 1px solid #024b68;
+        border: 1px solid $btnElectic;
         &:hover {
-          border: 1px solid #024b68;
+          border: 1px solid $btnElectic;
         }
       }
       .equip {

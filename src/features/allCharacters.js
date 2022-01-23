@@ -163,51 +163,61 @@ export const allCharactersReducer = createSlice({
       state.myCharacterInventory.dropItems = result;
     },
     addMyWeapon: (state, { payload }) => {
-      const deleteIndex = payload.index;
-      const result = state.myCharacterInventory.weapons.filter((el, i) => i !== deleteIndex);
-      state.myCharacterInventory.weapons = result;
+      let usedslotsCount =
+        state.myCharacterInventory.weapons.length +
+        state.myCharacterInventory.potions.length +
+        state.myCharacterInventory.dropItems.length;
+      console.log(usedslotsCount, 'usedslotsCount');
 
-      if (state.myWeapom !== null) {
-        state.myCharacterInventory = {
-          ...state.myCharacterInventory,
-          weapons: [...state.myCharacterInventory.weapons, state.myWeapom],
-        };
+      if (usedslotsCount < state.myCharacter.inventorySlots) {
+        const deleteIndex = payload.index;
+        const result = state.myCharacterInventory.weapons.filter((el, i) => i !== deleteIndex);
+        state.myCharacterInventory.weapons = result;
 
-        if (state.myWeapom.effects && state.myWeapom.effects.length > 0) {
-          state.myWeapom.effects.forEach((el) => {
+        if (state.myWeapom !== null) {
+          state.myCharacterInventory = {
+            ...state.myCharacterInventory,
+            weapons: [...state.myCharacterInventory.weapons, state.myWeapom],
+          };
+
+          if (state.myWeapom.effects && state.myWeapom.effects.length > 0) {
+            state.myWeapom.effects.forEach((el) => {
+              let currentEffect = payload.effects[el].effect;
+              if (currentEffect.health) {
+                state.myCharacter.health -= currentEffect.health;
+              } else if (currentEffect.energy) {
+                state.myCharacter.energy -= currentEffect.energy;
+              } else if (currentEffect.stamina) {
+                state.myCharacter.stamina -= currentEffect.stamina;
+              } else if (currentEffect.strength) {
+                state.myCharacter.strength -= currentEffect.strength;
+              } else if (currentEffect.inventorySlots) {
+                state.myCharacter.inventorySlots -= currentEffect.inventorySlots;
+              }
+            });
+          }
+        }
+
+        state.myWeapom = payload.weapon;
+
+        if (payload.weapon.effects && payload.weapon.effects.length > 0) {
+          payload.weapon.effects.forEach((el) => {
             let currentEffect = payload.effects[el].effect;
             if (currentEffect.health) {
-              state.myCharacter.health -= currentEffect.health;
+              state.myCharacter.health += currentEffect.health;
             } else if (currentEffect.energy) {
-              state.myCharacter.energy -= currentEffect.energy;
+              state.myCharacter.energy += currentEffect.energy;
             } else if (currentEffect.stamina) {
-              state.myCharacter.stamina -= currentEffect.stamina;
+              state.myCharacter.stamina += currentEffect.stamina;
             } else if (currentEffect.strength) {
-              state.myCharacter.strength -= currentEffect.strength;
+              state.myCharacter.strength += currentEffect.strength;
             } else if (currentEffect.inventorySlots) {
-              state.myCharacter.inventorySlots -= currentEffect.inventorySlots;
+              state.myCharacter.inventorySlots += currentEffect.inventorySlots;
             }
           });
         }
-      }
-
-      state.myWeapom = payload.weapon;
-
-      if (payload.weapon.effects && payload.weapon.effects.length > 0) {
-        payload.weapon.effects.forEach((el) => {
-          let currentEffect = payload.effects[el].effect;
-          if (currentEffect.health) {
-            state.myCharacter.health += currentEffect.health;
-          } else if (currentEffect.energy) {
-            state.myCharacter.energy += currentEffect.energy;
-          } else if (currentEffect.stamina) {
-            state.myCharacter.stamina += currentEffect.stamina;
-          } else if (currentEffect.strength) {
-            state.myCharacter.strength += currentEffect.strength;
-          } else if (currentEffect.inventorySlots) {
-            state.myCharacter.inventorySlots += currentEffect.inventorySlots;
-          }
-        });
+      } else {
+        alert('Inventory Full');
       }
     },
     removePotionInArena: (state, { payload }) => {

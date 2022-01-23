@@ -1,4 +1,5 @@
 @import '../../styles/mixins';
+@import '../../styles/colors';
 
 .arena-player {
   h3 {
@@ -20,7 +21,7 @@
     display: flex;
     width: 90%;
     border-radius: 10px;
-    background: #dce1e4;
+    background: $lightGreyTwo;
     height: 12px;
     overflow: visible;
     padding: 3px;
@@ -46,7 +47,7 @@
     margin: 0 auto;
     font-size: 14px;
     &:hover {
-      border: 1px solid #022550;
+      border: 1px solid $darkNavyBlue;
     }
   }
   .inventory-show-block {

@@ -1,1 +1,6 @@
-
+@import '../../styles/colors';
+.characters-link-page {
+  a {
+    color: $black;
+  }
+}

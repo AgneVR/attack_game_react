@@ -9,7 +9,7 @@
   flex-wrap: wrap;
   text-align: center;
   .one-drop {
-    background: rgb(223, 223, 223);
+    background: $dropBgGrey;
     padding: 10px;
     margin: 6px;
     border-radius: 12px;
@@ -25,7 +25,7 @@
     padding: 6px 10px;
     margin-top: 5px;
     &:hover {
-      border: 1px solid #022550;
+      border: 1px solid $darkNavyBlue;
     }
   }
 }

@@ -1,88 +1,89 @@
 @import 'fonts';
+@import './colors';
 
 @mixin buttonStyleBlue {
   border: none;
   border-radius: 12px 12px 0 0;
-  color: white;
+  color: $white;
   padding: 10px 20px;
-  background: #024b68;
+  background: $btnBlueDareker;
   cursor: pointer;
   font-weight: 600;
   letter-spacing: 1px;
   font-family: $fontFamily;
   font-size: 17px;
   border-bottom: none;
-  border: 1px solid #024b68;
+  border: 1px solid $btnBlueDareker;
 
   &:hover {
-    border: 1px solid #024b68;
-    color: #024b68;
-    background: white;
+    border: 1px solid $btnBlueDareker;
+    color: $btnBlueDareker;
+    background: $white;
     border-bottom: none;
   }
 }
 @mixin buttonStyleRed {
   border: none;
   border-radius: 12px 12px 0 0;
-  color: white;
+  color: $white;
   padding: 10px 20px;
-  background: #780505;
+  background: $btnRed;
   cursor: pointer;
   font-weight: 600;
   letter-spacing: 1px;
   font-family: $fontFamily;
   font-size: 17px;
   border-bottom: none;
-  border: 1px solid #780505;
+  border: 1px solid $btnRed;
 
   &:hover {
-    border: 1px solid #780505;
-    color: #780505;
-    background: white;
+    border: 1px solid $btnRed;
+    color: $btnRed;
+    background: $white;
     border-bottom: none;
   }
 }
 @mixin buttonStyleLightBlue {
   border: none;
   border-radius: 12px 12px 0 0;
-  color: white;
+  color: $white;
   padding: 10px 20px;
-  background: #0375a3;
+  background: $btnLightBlue;
   cursor: pointer;
   font-weight: 600;
   letter-spacing: 1px;
   font-family: $fontFamily;
   font-size: 17px;
   border-bottom: none;
-  border: 1px solid #0375a3;
+  border: 1px solid $btnLightBlue;
 
   &:hover {
-    border: 1px solid #0375a3;
+    border: 1px solid $btnLightBlue;
     border-bottom: none;
-    color: #0375a3;
-    background: white;
+    color: $btnLightBlue;
+    background: $white;
   }
 }
 
 @mixin buttonStyleShopDraker {
   border: none;
   border-radius: 12px 12px 0 0;
-  color: white;
+  color: $white;
   padding: 10px 20px;
-  background: #58023c;
+  background: $btnPurple;
   cursor: pointer;
   font-weight: 600;
   letter-spacing: 1px;
   font-family: $fontFamily;
   font-size: 17px;
   border-bottom: none;
-  border: 1px solid #58023c;
+  border: 1px solid $btnPurple;
 
   &:hover {
-    border: 1px solid #58023c;
+    border: 1px solid $btnPurple;
     border-bottom: none;
-    color: #58023c;
-    background: white;
+    color: $btnPurple;
+    background: $white;
   }
 }
 
@@ -91,41 +92,41 @@
   border-radius: 12px 12px 0 0;
   color: white;
   padding: 10px 20px;
-  background: #02575e;
+  background: $btnBlueGreen;
   cursor: pointer;
   font-weight: 600;
   letter-spacing: 1px;
   font-family: $fontFamily;
   font-size: 17px;
   border-bottom: none;
-  border: 1px solid #02575e;
+  border: 1px solid $btnBlueGreen;
 
   &:hover {
-    border: 1px solid #02575e;
+    border: 1px solid $btnBlueGreen;
     border-bottom: none;
-    color: #02575e;
-    background: white;
+    color: $btnBlueGreen;
+    background: $white;
   }
 }
 
 @mixin buttonStyleBlueDark {
   border: none;
   border-radius: 12px 12px 0 0;
-  color: white;
+  color: $white;
   padding: 10px 20px;
-  background: #022550;
+  background: $darkNavyBlue;
   cursor: pointer;
   font-weight: 600;
   letter-spacing: 1px;
   font-family: $fontFamily;
   font-size: 17px;
   border-bottom: none;
-  border: 1px solid #022550;
+  border: 1px solid $darkNavyBlue;
 
   &:hover {
-    border: 1px solid #022550;
-    color: #022550;
-    background: white;
+    border: 1px solid $darkNavyBlue;
+    color: $darkNavyBlue;
+    background: $white;
     border-bottom: none;
   }
 }
